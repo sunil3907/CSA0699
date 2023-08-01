@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+#define MAX_ROWS 10
+#define MAX_COLS 10
+
+int main() {
+    int a[MAX_ROWS][MAX_COLS], b[MAX_ROWS][MAX_COLS], result[MAX_ROWS][MAX_COLS];
+    int rows_a, cols_a, rows_b, cols_b;
+
+    printf("Enter the number of rows and columns of matrix A (max 10x10): ");
+    scanf("%d %d", &rows_a, &cols_a);
+
+    printf("Enter the elements of matrix A:\n");
+    for (int i = 0; i < rows_a; i++) {
+        for (int j = 0; j < cols_a; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("Enter the number of rows and columns of matrix B (max 10x10): ");
+    scanf("%d %d", &rows_b, &cols_b);
+
+    printf("Enter the elements of matrix B:\n");
+    for (int i = 0; i < rows_b; i++) {
+        for (int j = 0; j < cols_b; j++) {
+            scanf("%d", &b[i][j]);
+        }
+    }
+
+    if (cols_a != rows_b) {
+        printf("Error: The number of columns of matrix A must be equal to the number of rows of matrix B.\n");
+        return 1;
+    }
+
+    // Initialize the elements of the result matrix to 0
+    for (int i = 0; i < rows_a; i++) {
+        for (int j = 0; j < cols_b; j++) {
+            result[i][j] = 0;
+        }
+    }
+
+    // Multiply the matrices
+    for (int i = 0; i < rows_a; i++) {
+        for (int j = 0; j < cols_b; j++) {
+            for (int k = 0; k < cols_a; k++) {
+                result[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+
+    // Print the result matrix
+    printf("The result of the matrix multiplication is:\n");
+    for (int i = 0; i < rows_a; i++) {
+        for (int j = 0; j < cols_b; j++) {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
