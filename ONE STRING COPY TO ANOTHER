@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+#define MAX_LENGTH 100
+
+int main() {
+    char str1[MAX_LENGTH], str2[MAX_LENGTH];
+    int i;
+
+    printf("Enter a string: ");
+    scanf("%s", str1);
+
+    // copy str1 to str2
+    for (i = 0; str1[i] != '\0'; i++) {
+        str2[i] = str1[i];
+    }
+    str2[i] = '\0';
+
+    printf("Copied string: %s\n", str2);
+
+    return 0;
+}
