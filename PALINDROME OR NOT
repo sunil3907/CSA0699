@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_LENGTH 100
+
+int main() {
+    char str[MAX_LENGTH];
+    int i, j, len, is_palindrome;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    len = strlen(str);
+    is_palindrome = 1; // assume that the string is a palindrome initially
+
+    for (i = 0, j = len - 1; i < j; i++, j--) {
+        if (str[i] != str[j]) {
+            is_palindrome = 0; // mark the string as not a palindrome if a mismatch is found
+            break;
+        }
+    }
+
+    if (is_palindrome) {
+        printf("%s is a palindrome\n", str);
+    } else {
+        printf("%s is not a palindrome\n", str);
+    }
+
+    return 0;
+}
